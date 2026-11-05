@@ -63,7 +63,7 @@ public class Main {
         }
 
         private static void comer(){
-        saciedad = saciedad +3;
+        saciedad = saciedad +4;
         diversion = diversion -1;
         int saciedadMaxima = 10;
         if (saciedad > saciedadMaxima) {
@@ -77,7 +77,7 @@ public class Main {
 
         if (diversion < 10) {
             diversion = diversion + 3;
-            saciedad = saciedad - 1;
+            saciedad = saciedad - 2;
             energia = energia - 1;
 
            if (diversion > diversionMaxima) {
@@ -92,9 +92,9 @@ public class Main {
         private static void dormir() {
             int energiaMaxima = 10;
             if (energia < 10) {
-                energia = energia + 3;
-                saciedad = saciedad - 3;
-                diversion = diversion - 2;
+                energia = energia + 4;
+                saciedad = saciedad - 2;
+                diversion = diversion - 1;
 
                 if (energia > energiaMaxima) {
                     energia = energiaMaxima;
