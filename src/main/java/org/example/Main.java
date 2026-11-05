@@ -15,6 +15,9 @@ public class Main {
             else if (opcion==2){
                 comer();
             }
+            else if (opcion==3){
+                jugar();
+            }
 
             opcion=menuPrincipal();
         }
@@ -64,6 +67,23 @@ public class Main {
             saciedad = saciedadMaxima;
         }
         mostrarEstado();
+        }
+
+        private static void jugar(){
+        int diversionMaxima= 10;
+
+        if (diversion < 10) {
+            diversion = diversion + 3;
+            saciedad = saciedad - 1;
+            energia = energia - 1;
+
+           if (diversion > diversionMaxima) {
+               diversion = diversionMaxima;
+            }
+        mostrarEstado();
+        }
+
+        else {System.out.println ("Ahora no me apetece jugar.");}
         }
 
     }
