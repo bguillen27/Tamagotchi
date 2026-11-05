@@ -18,6 +18,9 @@ public class Main {
             else if (opcion==3){
                 jugar();
             }
+            else if (opcion ==4) {
+                dormir();
+            }
 
             opcion=menuPrincipal();
         }
@@ -85,5 +88,24 @@ public class Main {
 
         else {System.out.println ("Ahora no me apetece jugar.");}
         }
+
+        private static void dormir() {
+            int energiaMaxima = 10;
+            if (energia < 10) {
+                energia = energia + 3;
+                saciedad = saciedad - 3;
+                diversion = diversion - 2;
+
+                if (energia > energiaMaxima) {
+                    energia = energiaMaxima;
+                }
+                mostrarEstado();}
+
+
+            else{
+                    System.out.println(" Ahora no tengo sueño ");
+                }
+            }
+
 
     }
