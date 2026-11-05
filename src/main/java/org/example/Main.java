@@ -8,7 +8,7 @@ public class Main {
     static int diversion = 6;
     public static void main(String[] args) {
         int opcion=menuPrincipal();
-        while (opcion != 0) {
+        while (opcion != 0 && !finDelJuego()) {
             if (opcion == 1) {
                 mostrarEstado();
             }
@@ -25,7 +25,15 @@ public class Main {
                 acariciar();
             }
 
-            opcion=menuPrincipal();
+            if (!finDelJuego()) {
+                opcion = menuPrincipal();
+            }
+        }
+        if (finDelJuego()) {
+            System.out.println ("¡Fin del juego! ¡El tamagotchi ha MUERTO!");
+            System.out.println("(x_x) :( Game Over ):");
+            System.out.println(" /|_|\\");
+            System.out.println(" | |");
         }
     }
 
@@ -60,9 +68,29 @@ public class Main {
 
         if (saciedad > 5 && energia > 5 && diversion > 5) {
             System.out.println("El tamagotchi está contento");
+            System.out.println(" (•‿•) ¡Estoy feliz!");
+            System.out.println ("/|_|\\");
+            System.out.println (" | |");
         }
 
-        else {System.out.println("El tamagotchi no está contento");}
+        else if (diversion <= 4) {
+            System.out.println("El tamagotchi no está contento");
+            System.out.println("(-︵-) Estoy aburrido");
+            System.out.println("/|_|\\ ¡Juega conmigo!");
+            System.out.println(" / \\");
+        }
+        else if (saciedad <= 4) {
+            System.out.println ("El tamagotchi está hambriento");
+            System.out.println("(•︵•) ¡Tengo hambre!");
+            System.out.println("/|x|\\");
+            System.out.println(" | |\n");
+        }
+        else if (energia <= 4){
+            System.out.println ("El tamagotchi está cansado");
+            System.out.println("(-_-) Zzz");
+            System.out.println("/|_|\\");
+            System.out.println(" | |\n");
+        }
 
         }
 
@@ -73,6 +101,7 @@ public class Main {
         if (saciedad > saciedadMaxima) {
             saciedad = saciedadMaxima;
         }
+        limitarEstadisticas();
         mostrarEstado();
         }
 
@@ -87,6 +116,7 @@ public class Main {
            if (diversion > diversionMaxima) {
                diversion = diversionMaxima;
             }
+        limitarEstadisticas();
         mostrarEstado();
         }
 
@@ -103,6 +133,7 @@ public class Main {
                 if (energia > energiaMaxima) {
                     energia = energiaMaxima;
                 }
+                limitarEstadisticas();
                 mostrarEstado();}
 
 
@@ -118,12 +149,41 @@ public class Main {
                 if (diversion > diversionMaxima) {
                     diversion=diversionMaxima;
                 }
+            limitarEstadisticas();
             mostrarEstado();
         }
         else {System.out.println ("Ahora no necesito más mimos");}
 
         }
 
+    private static void limitarEstadisticas() {
+
+        if (saciedad > 10) {
+            saciedad = 10;
+        } else if (saciedad < 0) {
+            saciedad = 0;
+        }
+
+        if (energia > 10) {
+            energia = 10;
+        } else if (energia < 0) {
+            energia = 0;
+        }
+
+        if (diversion > 10) {
+            diversion = 10;
+        } else if (diversion < 0) {
+            diversion = 0;
+        }
+    }
+
+    private static boolean finDelJuego(){
+        boolean finDelJuego = false;
+        if (energia==0 || saciedad ==0 || diversion==0) {
+            finDelJuego = true;
+        }
+        return finDelJuego;
+    }
 
 
     }
