@@ -12,6 +12,9 @@ public class Main {
             if (opcion == 1) {
                 mostrarEstado();
             }
+            else if (opcion==2){
+                comer();
+            }
 
             opcion=menuPrincipal();
         }
@@ -51,6 +54,15 @@ public class Main {
 
         else {System.out.println("El tamagotchi no está contento");}
 
+        }
+
+        private static void comer(){
+        saciedad = saciedad +5;
+        diversion = diversion -1;
+        int saciedadMaxima = 10;
+        if (saciedad > saciedadMaxima) {
+            saciedad = saciedadMaxima;
+        }
         }
 
     }
