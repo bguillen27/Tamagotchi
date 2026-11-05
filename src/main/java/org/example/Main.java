@@ -57,12 +57,13 @@ public class Main {
         }
 
         private static void comer(){
-        saciedad = saciedad +5;
+        saciedad = saciedad +3;
         diversion = diversion -1;
         int saciedadMaxima = 10;
         if (saciedad > saciedadMaxima) {
             saciedad = saciedadMaxima;
         }
+        mostrarEstado();
         }
 
     }
