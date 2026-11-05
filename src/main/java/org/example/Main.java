@@ -21,6 +21,9 @@ public class Main {
             else if (opcion ==4) {
                 dormir();
             }
+            else if (opcion ==5) {
+                acariciar();
+            }
 
             opcion=menuPrincipal();
         }
@@ -34,17 +37,18 @@ public class Main {
             System.out.println("2. Comer");
             System.out.println("3. Jugar");
             System.out.println("4. Dormir");
+            System.out.println("5. Acariciar");
             System.out.println("----------------");
             System.out.println("0. Salir");
             System.out.println("Selecciona una opción del menú: ");
             opcion=lector.nextInt();
 
-            if (opcion < 0 || opcion > 4) {
+            if (opcion < 0 || opcion > 5) {
                 System.out.println ("Introduce una opción válida");
             }
         }
 
-        while (opcion < 0 || opcion > 4);
+        while (opcion < 0 || opcion > 5);
         return opcion;
         }
         private static void mostrarEstado(){
@@ -106,6 +110,20 @@ public class Main {
                     System.out.println(" Ahora no tengo sueño ");
                 }
             }
+
+        private static void acariciar(){
+        int diversionMaxima=10;
+        if (diversion < 10) {
+            diversion=diversion+2;
+                if (diversion > diversionMaxima) {
+                    diversion=diversionMaxima;
+                }
+            mostrarEstado();
+        }
+        else {System.out.println ("Ahora no necesito más mimos");}
+
+        }
+
 
 
     }
